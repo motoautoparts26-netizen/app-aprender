@@ -6,6 +6,8 @@ import { sessionsOnDay } from '../engine/state';
 import type { TrackId } from '../engine/types';
 import { ParentGateButton } from '../parent/ParentGate';
 import { ReplayButton } from '../activities/shared/ReplayButton';
+import { Lulu } from '../content/svg/Lulu';
+import { Estrelinhas, useNoiteTheme } from './noite';
 
 const ORDER: TrackId[] = ['colors', 'letters', 'numbers'];
 
@@ -16,6 +18,7 @@ export function Home(): JSX.Element {
   // dailyLimit 0 = sem limite (só para testes)
   const limitReached = settings.dailyLimit > 0 && sessionsOnDay(derived, now()) >= settings.dailyLimit;
 
+  useNoiteTheme();
   const greeted = useRef(false);
   useEffect(() => {
     if (greeted.current) return; // React em desenvolvimento roda o efeito duas vezes
@@ -29,8 +32,10 @@ export function Home(): JSX.Element {
   };
 
   return (
-    <div className="screen">
+    <div className="screen noite">
+      <Estrelinhas />
       <ParentGateButton />
+      <div className="noite-lulu-home"><Lulu humor="normal" size={84} galho /></div>
       <div className="islands">
         {tracks.map((t) => {
           const ts = derived.tracks[t];
@@ -49,7 +54,7 @@ export function Home(): JSX.Element {
           );
         })}
       </div>
-      <ReplayButton />
+      <ReplayButton noite />
     </div>
   );
 }

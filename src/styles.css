@@ -173,3 +173,33 @@ table.state th, table.state td { border-bottom: 1px solid var(--line); padding: 
 .avatar-pick { display: flex; gap: 8px; flex-wrap: wrap; }
 .avatar-pick button { width: 64px; height: 64px; border-radius: 16px; border: 2px solid var(--line); background: var(--card); padding: 8px; }
 .avatar-pick button.sel { border-color: var(--accent); }
+
+/* Tema noite (Coruja Lulu): só em início, home, celebração e limite. Atividades continuam em --bg. */
+.screen.noite {
+  --noite-ceu: #131A3B; --noite-ceu2: #24337A; --noite-cartao: #34449A; --noite-cartao-borda: #5368C8;
+  --noite-lua: #F7E6A1; --noite-sol: #FFC542; --noite-sol-esc: #B9851B; --noite-texto: #F6F2E7; --noite-suave: #BAC2EA;
+  position: relative; min-height: 100vh; min-height: 100dvh; overflow: hidden;
+  background: radial-gradient(120% 70% at 50% 0%, var(--noite-ceu2), var(--noite-ceu)) var(--noite-ceu);
+  color: var(--noite-texto);
+}
+.screen.noite > * { position: relative; z-index: 1; }
+.screen.noite > .corner-gate, .screen.noite > .replay { position: fixed; }
+.noite-estrelas { position: absolute !important; inset: 0; z-index: 0 !important; pointer-events: none; }
+.noite-estrelas i { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: var(--noite-lua); opacity: .6; animation: noite-pisca 3s infinite alternate; }
+.noite .celebrate { color: var(--noite-lua); }
+.noite-bt { background: var(--noite-sol); color: var(--noite-ceu); font-weight: 700; box-shadow: 0 6px 0 var(--noite-sol-esc); }
+.noite-bt:active { box-shadow: 0 2px 0 var(--noite-sol-esc); }
+.noite .island-btn { background: var(--noite-cartao); border: 4px solid var(--noite-cartao-borda); box-shadow: 0 6px 0 rgba(0,0,0,.35); color: var(--noite-texto); }
+.noite .island-btn:active { box-shadow: 0 2px 0 rgba(0,0,0,.35); }
+.noite-lulu-home { align-self: flex-start; margin-left: 8px; }
+.noite-cartao { background: var(--noite-cartao); border: 2px solid var(--noite-cartao-borda); border-radius: 16px; padding: 10px; color: var(--noite-texto); }
+.noite-cartao .muted { color: var(--noite-suave); }
+.noite-celebra { display: flex; align-items: flex-end; gap: 8px; }
+.noite-celebra .star { width: 120px; height: 120px; }
+.noite-pula { animation: noite-pula 500ms ease 2; }
+.replay.noite { background: var(--noite-sol, #FFC542); box-shadow: 0 6px 0 #B9851B; }
+@keyframes noite-pisca { to { opacity: .15; } }
+@keyframes noite-pula { 50% { transform: translateY(-14px) rotate(-4deg); } }
+@media (prefers-reduced-motion: reduce) { .noite-estrelas i, .noite-pula { animation: none !important; } }
+.noite .island-title { color: var(--noite-lua); }
+.noite .island-btn > svg { background: radial-gradient(circle, #E4E9FB 0 62%, transparent 63%); }
