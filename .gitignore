@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dev-dist/
+*.log
+.DS_Store
+.claude/
+tools/tts-venv/
+tools/amostras/
+tools/falas.json
+preview*.log
+tools/nome-privado.txt
