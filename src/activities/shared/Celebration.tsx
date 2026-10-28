@@ -6,7 +6,7 @@ import { Estrelinhas, useNoiteTheme } from '../../child/noite';
 export function Celebration({ onDone }: { onDone: () => void }): JSX.Element {
   useNoiteTheme();
   return (
-    <div className="screen noite" onPointerUp={onDone}>
+    <div className="screen noite" onClick={onDone}>
       <Estrelinhas />
       <div className="noite-celebra">
         <div className="noite-pula"><Lulu humor="feliz" size={150} /></div>

@@ -13,7 +13,7 @@ export function StartScreen(): JSX.Element {
     goto('home');
   };
   return (
-    <div className="screen noite" onPointerUp={() => void start()}>
+    <div className="screen noite" onClick={() => void start()}>
       <Estrelinhas />
       <ParentGateButton />
       <Lulu humor="feliz" size="min(60vw, 240px)" galho />

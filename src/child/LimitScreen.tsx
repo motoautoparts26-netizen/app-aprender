@@ -19,7 +19,7 @@ export function LimitScreen(): JSX.Element {
   const stageId = track?.currentStageId ?? content.tracks.colors?.stages[0]?.id ?? 'C1';
   const week = weeklySuggestion(stageId, now());
   return (
-    <div className="screen noite" onPointerUp={() => goto('home')}>
+    <div className="screen noite" onClick={() => goto('home')}>
       <Estrelinhas />
       <ParentGateButton />
       <Lulu humor="sono" size="min(55vw, 220px)" galho />
